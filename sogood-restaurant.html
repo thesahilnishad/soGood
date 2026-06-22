@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>So Good Restaurant — Chinese & Japanese Fusion | Prince George, BC</title>
+<meta name="description" content="Premium Chinese & Japanese fusion dining in Prince George, BC. Dine-in, takeout & free delivery on orders over $30.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --obsidian: #0D0D0D;
+    --charcoal: #161616;
+    --charcoal-light: #1E1E1E;
+    --charcoal-mid: #252525;
+    --surface: #2A2A2A;
+    --surface-light: #333333;
+    --crimson: #C8102E;
+    --crimson-dark: #9E0B24;
+    --amber: #D4831A;
+    --amber-light: #E8A04A;
+    --bamboo: #7A9E6A;
+    --gold: #C9A84C;
+    --gold-light: #E8C97A;
+    --cream: #F5EDD8;
+    --cream-muted: #C8B99A;
+    --white: #FAFAF8;
+    --text-muted: #888880;
+    --border: rgba(255,255,255,0.08);
+    --border-accent: rgba(201,168,76,0.3);
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --radius: 4px;
+    --radius-lg: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--obsidian);
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; text-decoration: none; }
+
+  /* ── NAV ─────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(13,13,13,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5vw;
+    height: 68px;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--gold-light);
+    display: flex; flex-direction: column; line-height: 1.1;
+  }
+
+  .nav-logo span {
+    font-size: 0.6rem;
+    font-family: var(--font-body);
+    font-weight: 300;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+  }
+
+  .nav-links {
+    display: flex; align-items: center; gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--cream-muted);
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold-light); }
+
+  .nav-cta {
+    background: var(--crimson) !important;
+    color: var(--white) !important;
+    padding: 0.5rem 1.25rem !important;
+    border-radius: var(--radius) !important;
+    font-weight: 500 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--crimson-dark) !important; }
+
+  .nav-hamburger {
+    display: none;
+    flex-direction: column; gap: 5px;
+    background: none; border: none; cursor: pointer; padding: 4px;
+  }
+
+  .nav-hamburger span {
+    display: block; width: 24px; height: 1.5px;
+    background: var(--cream); transition: 0.3s;
+  }
+
+  /* ── HERO ────────────────────────────────────── */
+  .hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 5vw 80px;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(13,13,13,0.97) 0%, rgba(13,13,13,0.8) 50%, rgba(13,13,13,0.92) 100%),
+      url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400"><defs><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/></filter></defs><rect width="400" height="400" filter="url(%23noise)" opacity="0.05"/></svg>');
+    background-size: cover;
+  }
+
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,0.4) 40px, rgba(201,168,76,0.4) 41px),
+      repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,0.4) 40px, rgba(201,168,76,0.4) 41px);
+  }
+
+  .hero-accent {
+    position: absolute; top: 20%; right: 5vw;
+    width: min(420px, 45vw); height: min(420px, 45vw);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(200,16,46,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-accent-2 {
+    position: absolute; bottom: 15%; left: 5vw;
+    width: min(300px, 35vw); height: min(300px, 35vw);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(212,131,26,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-content { position: relative; z-index: 1; max-width: 680px; }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-title {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--cream-muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--crimson);
+    color: var(--white);
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--crimson-dark); transform: translateY(-1px); }
+
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: transparent;
+    color: var(--cream);
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    border: 1px solid rgba(245,237,216,0.3);
+    cursor: pointer;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  .hero-delivery {
+    display: inline-flex; align-items: center; gap: 0.75rem;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid var(--border-accent);
+    border-radius: 100px;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+    color: var(--gold-light);
+  }
+
+  .hero-delivery-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .hero-visual {
+    position: absolute; right: 5vw; top: 50%;
+    transform: translateY(-50%);
+    width: min(380px, 40vw);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+  }
+
+  .hero-img-card {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .hero-img-card:first-child {
+    grid-column: 1 / -1;
+    height: 200px;
+  }
+
+  .hero-img-card:not(:first-child) { height: 130px; }
+
+  .food-visual {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--cream-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .food-visual-sushi { background: linear-gradient(135deg, #1a1208 0%, #2a1c0a 100%); }
+  .food-visual-dim { background: linear-gradient(135deg, #120808 0%, #1e0f0f 100%); }
+  .food-visual-drinks { background: linear-gradient(135deg, #081212 0%, #0a1818 100%); }
+
+  .scroll-hint {
+    position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--text-muted); z-index: 1;
+    animation: bounce 2s ease-in-out infinite;
+  }
+
+  .scroll-hint-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, var(--text-muted), transparent);
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── SECTIONS ────────────────────────────────── */
+  section { padding: 100px 5vw; }
+
+  .section-eyebrow {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.3em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .section-eyebrow::before {
+    content: ''; display: block;
+    width: 24px; height: 1px; background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.25rem);
+    font-weight: 300; line-height: 1.15;
+    color: var(--white); margin-bottom: 1rem;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold-light); }
+
+  .section-sub {
+    font-size: 0.95rem; font-weight: 300;
+    color: var(--cream-muted); max-width: 520px; line-height: 1.8;
+  }
+
+  .divider {
+    width: 100%; height: 1px;
+    background: var(--border);
+    margin: 0;
+  }
+
+  /* ── MENU ────────────────────────────────────── */
+  #menu { background: var(--charcoal); }
+
+  .menu-header {
+    display: flex; justify-content: space-between;
+    align-items: flex-end; flex-wrap: wrap; gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .menu-tabs {
+    display: flex; gap: 0;
+    background: var(--charcoal-mid);
+    border-radius: var(--radius);
+    padding: 4px;
+    border: 1px solid var(--border);
+    margin-top: 2rem;
+    width: fit-content;
+  }
+
+  .menu-tab {
+    padding: 0.625rem 1.5rem;
+    font-size: 0.8rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--text-muted);
+    background: transparent; border: none; cursor: pointer;
+    border-radius: calc(var(--radius) - 2px);
+    transition: all 0.2s;
+  }
+
+  .menu-tab.active {
+    background: var(--crimson);
+    color: var(--white);
+  }
+
+  .menu-tab:hover:not(.active) { color: var(--cream); }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .menu-card {
+    background: var(--charcoal-light);
+    padding: 1.75rem;
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+
+  .menu-card:hover { background: var(--charcoal-mid); }
+
+  .menu-card-tag {
+    font-size: 0.65rem; font-weight: 600;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 0.75rem;
+  }
+
+  .menu-card-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem; font-weight: 600;
+    color: var(--white); margin-bottom: 0.5rem;
+    line-height: 1.2;
+  }
+
+  .menu-card-desc {
+    font-size: 0.82rem; color: var(--text-muted);
+    line-height: 1.7; margin-bottom: 1.25rem;
+  }
+
+  .menu-card-footer {
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .menu-card-price {
+    font-family: var(--font-display);
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--gold-light);
+  }
+
+  .menu-card-from { font-size: 0.72rem; color: var(--text-muted); margin-right: 4px; }
+
+  .menu-card-btn {
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border-accent);
+    padding: 0.375rem 0.875rem; border-radius: 100px;
+    background: transparent; cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .menu-card-btn:hover {
+    background: var(--gold);
+    color: var(--obsidian);
+    border-color: var(--gold);
+  }
+
+  .menu-card-featured {
+    background: linear-gradient(135deg, #1a0c0c 0%, #200d0d 100%);
+    border: 1px solid rgba(200,16,46,0.3);
+    position: relative;
+  }
+
+  .menu-card-featured:hover { background: linear-gradient(135deg, #200d0d 0%, #2a1010 100%); }
+
+  .featured-badge {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    font-size: 0.62rem; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    background: var(--crimson); color: var(--white);
+    padding: 0.25rem 0.75rem; border-radius: 100px;
+  }
+
+  /* ── ABOUT ───────────────────────────────────── */
+  #about {
+    background: var(--obsidian);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .about-text { max-width: 540px; }
+
+  .about-text p {
+    font-size: 0.95rem; color: var(--cream-muted);
+    line-height: 1.9; margin-bottom: 1.25rem; font-weight: 300;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-quote {
+    font-family: var(--font-display);
+    font-size: 1.5rem; font-weight: 300;
+    font-style: italic; color: var(--gold-light);
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    line-height: 1.5;
+  }
+
+  .about-stats {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden; margin-top: 2.5rem;
+  }
+
+  .about-stat {
+    background: var(--charcoal);
+    padding: 1.5rem;
+  }
+
+  .about-stat-num {
+    font-family: var(--font-display);
+    font-size: 2.5rem; font-weight: 300;
+    color: var(--gold-light); line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .about-stat-label {
+    font-size: 0.75rem; color: var(--text-muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .about-visual {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .video-placeholder {
+    background: var(--charcoal-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    aspect-ratio: 16/9;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: 1rem; cursor: pointer;
+    transition: border-color 0.2s;
+  }
+
+  .video-placeholder:hover { border-color: rgba(201,168,76,0.4); }
+
+  .play-btn {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: rgba(200,16,46,0.9);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.2s, background 0.2s;
+  }
+
+  .video-placeholder:hover .play-btn {
+    transform: scale(1.08);
+    background: var(--crimson);
+  }
+
+  .play-icon {
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent white;
+    margin-left: 4px;
+  }
+
+  .video-label {
+    font-size: 0.8rem; color: var(--text-muted);
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+
+  .about-imgs {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  }
+
+  .about-img-block {
+    border-radius: var(--radius-lg); overflow: hidden;
+    border: 1px solid var(--border);
+    height: 150px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-display); font-size: 0.9rem;
+    font-weight: 300; color: var(--cream-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .img-kitchen { background: linear-gradient(135deg, #120808 0%, #1a0c0c 100%); }
+  .img-plating { background: linear-gradient(135deg, #0a0e10 0%, #0f1518 100%); }
+
+  /* ── RESERVATIONS ────────────────────────────── */
+  #reservations {
+    background: var(--charcoal);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .res-info { padding-top: 0.5rem; }
+
+  .dine-options {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1rem; margin-top: 2.5rem;
+  }
+
+  .dine-card {
+    background: var(--charcoal-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+
+  .dine-card:hover { border-color: var(--border-accent); }
+
+  .dine-icon {
+    width: 40px; height: 40px; border-radius: var(--radius);
+    background: rgba(200,16,46,0.1);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .dine-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--white); margin-bottom: 0.375rem;
+  }
+
+  .dine-card p {
+    font-size: 0.8rem; color: var(--text-muted); line-height: 1.6;
+  }
+
+  .hours-block {
+    margin-top: 2rem;
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+  }
+
+  .hours-block h4 {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+
+  .hours-row {
+    display: flex; justify-content: space-between;
+    font-size: 0.83rem; padding: 0.375rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--cream-muted);
+  }
+
+  .hours-row span:last-child { color: var(--cream); }
+
+  .res-form {
+    background: var(--charcoal-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+  }
+
+  .res-form h3 {
+    font-family: var(--font-display);
+    font-size: 1.6rem; font-weight: 300;
+    color: var(--white); margin-bottom: 0.5rem;
+  }
+
+  .res-form p {
+    font-size: 0.82rem; color: var(--text-muted);
+    margin-bottom: 2rem;
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+
+  .form-label {
+    display: block;
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--cream-muted); margin-bottom: 0.5rem;
+  }
+
+  .form-input, .form-select {
+    width: 100%;
+    background: var(--charcoal-mid);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 0.75rem 1rem;
+    color: var(--cream);
+    font-size: 0.9rem;
+    font-family: var(--font-body);
+    appearance: none;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-input:focus, .form-select:focus {
+    border-color: rgba(201,168,76,0.5);
+  }
+
+  .form-input::placeholder { color: var(--text-muted); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    width: 100%;
+    background: var(--crimson);
+    color: var(--white);
+    border: none; border-radius: var(--radius);
+    padding: 0.9rem;
+    font-size: 0.875rem; font-weight: 500;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover { background: var(--crimson-dark); }
+
+  .form-note {
+    font-size: 0.72rem; color: var(--text-muted);
+    text-align: center; margin-top: 0.75rem;
+  }
+
+  /* ── SPECIAL SECTION ─────────────────────────── */
+  .specials-strip {
+    background: linear-gradient(135deg, #140808 0%, #180a0a 100%);
+    border-top: 1px solid rgba(200,16,46,0.2);
+    border-bottom: 1px solid rgba(200,16,46,0.2);
+    padding: 60px 5vw;
+  }
+
+  .specials-inner {
+    display: flex; align-items: center;
+    justify-content: space-between; flex-wrap: wrap;
+    gap: 2rem; max-width: 1200px; margin: 0 auto;
+  }
+
+  .specials-text h2 {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 300; color: var(--white);
+  }
+
+  .specials-text h2 em {
+    font-style: italic; color: var(--gold-light);
+  }
+
+  .specials-text p {
+    font-size: 0.85rem; color: var(--text-muted); margin-top: 0.25rem;
+  }
+
+  .specials-price {
+    font-family: var(--font-display);
+    font-size: 3rem; font-weight: 300;
+    color: var(--crimson);
+    display: flex; align-items: flex-start; gap: 0.25rem;
+  }
+
+  .specials-price sup {
+    font-size: 1.25rem; margin-top: 0.5rem;
+    color: var(--cream-muted);
+  }
+
+  /* ── FOOTER ──────────────────────────────────── */
+  footer {
+    background: #080808;
+    padding: 80px 5vw 40px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 3rem; margin-bottom: 4rem;
+  }
+
+  .footer-brand .nav-logo {
+    font-size: 1.75rem; margin-bottom: 1rem;
+  }
+
+  .footer-brand p {
+    font-size: 0.83rem; color: var(--text-muted);
+    line-height: 1.8; max-width: 280px; font-weight: 300;
+  }
+
+  .footer-col h4 {
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1.25rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col li { margin-bottom: 0.625rem; }
+
+  .footer-col a {
+    font-size: 0.85rem; color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--cream); }
+
+  .footer-contact-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .footer-contact-icon {
+    width: 32px; height: 32px; border-radius: var(--radius);
+    background: var(--charcoal);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 0.9rem;
+  }
+
+  .footer-contact-text {
+    font-size: 0.83rem; color: var(--cream-muted); line-height: 1.5;
+  }
+
+  .footer-contact-text strong {
+    display: block; color: var(--cream);
+    font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.05em; margin-bottom: 0.1rem;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.5rem;
+    display: flex; justify-content: space-between;
+    align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.78rem; color: var(--text-muted);
+  }
+
+  .footer-bottom a {
+    font-size: 0.78rem; color: var(--text-muted);
+    transition: color 0.2s;
+  }
+
+  .footer-bottom a:hover { color: var(--cream); }
+
+  .footer-bottom-links {
+    display: flex; gap: 1.5rem;
+  }
+
+  /* ── MOBILE ──────────────────────────────────── */
+  @media (max-width: 900px) {
+    nav { padding: 0 1.25rem; }
+
+    .nav-links { display: none; }
+    .nav-links.open {
+      display: flex; flex-direction: column;
+      position: fixed; top: 68px; left: 0; right: 0;
+      background: rgba(13,13,13,0.98);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem; gap: 1.25rem; z-index: 99;
+    }
+
+    .nav-hamburger { display: flex; }
+
+    .hero { padding: 100px 1.25rem 60px; }
+
+    .hero-visual { display: none; }
+
+    .hero-title { font-size: clamp(2.2rem, 8vw, 3.5rem); }
+
+    section { padding: 70px 1.25rem; }
+
+    #about, #reservations {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .footer-brand { grid-column: 1 / -1; }
+
+    .dine-options { grid-template-columns: 1fr; }
+
+    .specials-inner { flex-direction: column; text-align: center; gap: 1rem; }
+
+    .about-imgs { grid-template-columns: 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .hero-ctas { flex-direction: column; }
+    .btn-primary, .btn-outline { width: 100%; justify-content: center; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    So Good
+    <span>Chinese &amp; Japanese Fusion</span>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reservations">Reservations</a></li>
+    <li><a href="#reservations" class="nav-cta">Order Online</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent-2"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Prince George, BC &mdash; Est. 2018</p>
+    <h1 class="hero-title">
+      Exquisite <em>Chinese &amp; Japanese</em><br>
+      Dining Experience
+    </h1>
+    <p class="hero-subtitle">
+      Where the ancient art of Chinese wok cookery meets the precision of Japanese
+      omakase tradition. Every dish, a journey across the Pacific.
+    </p>
+    <div class="hero-ctas">
+      <a href="#menu" class="btn-primary">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        Order Online
+      </a>
+      <a href="#reservations" class="btn-outline">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        Make a Reservation
+      </a>
+    </div>
+    <div class="hero-delivery">
+      <div class="hero-delivery-dot"></div>
+      Free home delivery within local area on orders over $30
+    </div>
+  </div>
+
+  <div class="hero-visual" aria-hidden="true">
+    <div class="hero-img-card">
+      <div class="food-visual food-visual-sushi">Premium Omakase Sushi</div>
+    </div>
+    <div class="hero-img-card">
+      <div class="food-visual food-visual-dim">Dim Sum</div>
+    </div>
+    <div class="hero-img-card">
+      <div class="food-visual food-visual-drinks">Specialty Drinks</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint" aria-hidden="true">
+    <span>Explore</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="menu-header">
+    <div>
+      <p class="section-eyebrow">Our Menus</p>
+      <h2 class="section-title">Two kitchens,<br><em>one philosophy</em></h2>
+    </div>
+    <p class="section-sub" style="align-self: flex-end;">
+      Our chefs trained in Guangzhou and Osaka bring authentic mastery to every course — from hand-folded dumplings to single-piece nigiri.
+    </p>
+  </div>
+
+  <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+    <button class="menu-tab active" role="tab" aria-selected="true" data-target="chinese">Chinese Menu</button>
+    <button class="menu-tab" role="tab" aria-selected="false" data-target="japanese">Japanese Menu</button>
+  </div>
+
+  <div style="margin-top: 2rem;">
+    <!-- CHINESE PANEL -->
+    <div class="menu-panel active" id="panel-chinese">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-card-tag">Signature</div>
+          <div class="menu-card-title">Dim Sum Basket</div>
+          <div class="menu-card-desc">Hand-pleated har gow, siu mai, and char siu bao steamed to order. Served with house ginger soy and XO chilli.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price"><span class="menu-card-from">from</span>$16.95</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-tag">Wok-Fired</div>
+          <div class="menu-card-title">Cantonese Stir-Fry</div>
+          <div class="menu-card-desc">Choice of Szechuan beef, kung pao chicken, or mapo tofu. Wok hei technique with high-flame caramelisation.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price"><span class="menu-card-from">from</span>$19.95</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-tag">Slow-Braised</div>
+          <div class="menu-card-title">Hong Shao Rou</div>
+          <div class="menu-card-desc">Melt-tender pork belly braised for six hours in Shaoxing wine, dark soy and rock sugar. Steamed bao on the side.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$26.95</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+        <div class="menu-card menu-card-featured">
+          <div class="featured-badge">New Arrival</div>
+          <div class="menu-card-tag" style="color: var(--amber-light);">Fusion</div>
+          <div class="menu-card-title">Spicy Tuna Poke Bowl</div>
+          <div class="menu-card-desc">Sashimi-grade tuna, sesame jasmine rice, edamame, cucumber, avocado, tobiko and our house chilli ponzu dressing.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$24.95</div>
+            <button class="menu-card-btn" style="border-color: rgba(212,131,26,0.4); color: var(--amber-light);">Add to order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JAPANESE PANEL -->
+    <div class="menu-panel" id="panel-japanese">
+      <div class="menu-grid">
+        <div class="menu-card">
+          <div class="menu-card-tag">Omakase</div>
+          <div class="menu-card-title">Premium Nigiri Set</div>
+          <div class="menu-card-desc">Chef's selection of eight nigiri — bluefin toro, hamachi, uni, salmon roe — hand-pressed with aged akazu rice.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$38.00</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-tag">Sashimi</div>
+          <div class="menu-card-title">Sashimi Platter</div>
+          <div class="menu-card-desc">Fifteen slices of chef's finest: bluefin, yellowtail, octopus, scallop. Served with house ponzu and wasabi.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$42.00</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-tag">Ramen</div>
+          <div class="menu-card-title">Tonkotsu Black</div>
+          <div class="menu-card-desc">36-hour pork bone broth finished with black garlic oil, chashu, soft-boiled tamago, nori and bamboo shoots.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$22.95</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+        <div class="menu-card">
+          <div class="menu-card-tag">Specialty Drinks</div>
+          <div class="menu-card-title">Yuzu Sake Spritz</div>
+          <div class="menu-card-desc">House-infused yuzu sake, elderflower, lychee soda and a whisper of Himalayan salt. Non-alcoholic version available.</div>
+          <div class="menu-card-footer">
+            <div class="menu-card-price">$13.95</div>
+            <button class="menu-card-btn">Add to order</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALS STRIP -->
+<div class="specials-strip">
+  <div class="specials-inner">
+    <div class="specials-text">
+      <h2>New arrival — <em>Spicy Tuna Poke Bowl</em></h2>
+      <p>Sashimi-grade tuna, sesame rice, avocado, tobiko &amp; house chilli ponzu</p>
+    </div>
+    <div class="specials-price">
+      <sup>$</sup>24<sup>.95</sup>
+    </div>
+    <a href="#menu" class="btn-primary">Order now</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-text">
+    <p class="section-eyebrow">Our Story</p>
+    <h2 class="section-title">Where two traditions<br><em>become one table</em></h2>
+
+    <div class="about-quote">
+      "Food is memory, and memory is culture. We cook to connect people across borders."
+    </div>
+
+    <p>
+      So Good was born from a simple conviction: that Cantonese and Japanese cuisine — both rooted in a reverence for quality ingredients, seasonal rhythm and generational craft — belong together at the same table.
+    </p>
+    <p>
+      Head Chef Wei Chen trained under masters in Guangzhou for a decade before apprenticing at an Osaka kappo restaurant. That rare dual fluency is what you taste in every dish we serve.
+    </p>
+    <p>
+      We source daily from BC's finest seafood suppliers, and our produce arrives fresh each morning. No freezers for proteins. No shortcuts for broth. Just two great culinary traditions, cooked with care.
+    </p>
+
+    <div class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-num">12+</div>
+        <div class="about-stat-label">Years in service</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">80+</div>
+        <div class="about-stat-label">Menu items</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">4.8★</div>
+        <div class="about-stat-label">Google rating</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-num">Daily</div>
+        <div class="about-stat-label">Fresh fish delivery</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="about-visual">
+    <div class="video-placeholder" role="button" tabindex="0" aria-label="Play behind-the-scenes kitchen video">
+      <div class="play-btn" aria-hidden="true">
+        <div class="play-icon"></div>
+      </div>
+      <span class="video-label">Behind the scenes — the kitchen</span>
+    </div>
+    <div class="about-imgs">
+      <div class="about-img-block img-kitchen">The Kitchen</div>
+      <div class="about-img-block img-plating">The Plating</div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATIONS -->
+<section id="reservations">
+  <div class="res-info">
+    <p class="section-eyebrow">Visit Us</p>
+    <h2 class="section-title">Dine-in &amp;<br><em>Takeout</em></h2>
+    <p class="section-sub">Whether you're joining us for a full omakase experience or picking up tonight's dinner, we're ready for you.</p>
+
+    <div class="dine-options">
+      <div class="dine-card">
+        <div class="dine-icon" aria-hidden="true">🍽</div>
+        <h3>Dine-In</h3>
+        <p>Full table service, curated wine &amp; sake pairings, and a warm dining room designed for long evenings.</p>
+      </div>
+      <div class="dine-card">
+        <div class="dine-icon" aria-hidden="true">🥡</div>
+        <h3>Takeout</h3>
+        <p>Ready in 20–30 minutes. Order by phone or online and collect at the door, no wait required.</p>
+      </div>
+      <div class="dine-card">
+        <div class="dine-icon" aria-hidden="true">🛵</div>
+        <h3>Delivery</h3>
+        <p>Free local delivery on orders over $30. We deliver within Prince George — hot and fresh, every time.</p>
+      </div>
+      <div class="dine-card">
+        <div class="dine-icon" aria-hidden="true">🎉</div>
+        <h3>Private Events</h3>
+        <p>Host your next celebration with us. Semi-private dining room available for groups of 10–30 guests.</p>
+      </div>
+    </div>
+
+    <div class="hours-block">
+      <h4>Opening hours</h4>
+      <div class="hours-row"><span>Monday – Thursday</span><span>11:00 am – 9:30 pm</span></div>
+      <div class="hours-row"><span>Friday – Saturday</span><span>11:00 am – 10:30 pm</span></div>
+      <div class="hours-row"><span>Sunday</span><span>12:00 pm – 9:00 pm</span></div>
+    </div>
+  </div>
+
+  <div class="res-form">
+    <h3>Reserve your table</h3>
+    <p>Reservations recommended on Friday and Saturday evenings.</p>
+
+    <form onsubmit="handleReservation(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="res-first">First name</label>
+          <input class="form-input" type="text" id="res-first" name="first" placeholder="Wei" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="res-last">Last name</label>
+          <input class="form-input" type="text" id="res-last" name="last" placeholder="Chen" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="res-email">Email address</label>
+        <input class="form-input" type="email" id="res-email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="res-phone">Phone number</label>
+        <input class="form-input" type="tel" id="res-phone" name="phone" placeholder="250-000-0000">
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label" for="res-date">Date</label>
+          <input class="form-input" type="date" id="res-date" name="date" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="res-time">Time</label>
+          <select class="form-select" id="res-time" name="time" required>
+            <option value="">Select time</option>
+            <option>11:00 am</option><option>11:30 am</option>
+            <option>12:00 pm</option><option>12:30 pm</option>
+            <option>1:00 pm</option><option>1:30 pm</option>
+            <option>5:00 pm</option><option>5:30 pm</option>
+            <option>6:00 pm</option><option>6:30 pm</option>
+            <option>7:00 pm</option><option>7:30 pm</option>
+            <option>8:00 pm</option><option>8:30 pm</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="res-guests">Number of guests</label>
+        <select class="form-select" id="res-guests" name="guests" required>
+          <option value="">Select guests</option>
+          <option>1 guest</option><option>2 guests</option>
+          <option>3 guests</option><option>4 guests</option>
+          <option>5 guests</option><option>6 guests</option>
+          <option>7 guests</option><option>8 guests</option>
+          <option>Larger group (contact us)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="res-notes">Special requests (optional)</label>
+        <input class="form-input" type="text" id="res-notes" name="notes" placeholder="Allergies, celebrations, accessibility needs…">
+      </div>
+      <button type="submit" class="form-submit">Request reservation</button>
+      <p class="form-note">You'll receive a confirmation call within 2 hours. For same-day reservations call us directly at 250-614-2388.</p>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo" style="display:inline-flex; margin-bottom:1rem;">
+        So Good
+        <span>Chinese &amp; Japanese Fusion</span>
+      </div>
+      <p>A premium Chinese and Japanese fusion restaurant in the heart of Prince George, BC. Authentic flavours, modern expression, warm hospitality.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigate</h4>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#reservations">Reservations</a></li>
+        <li><a href="#menu">Order Online</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Hours</h4>
+      <ul>
+        <li><a>Mon – Thu</a></li>
+        <li><a style="color: var(--cream-muted);">11am – 9:30pm</a></li>
+        <li><a style="margin-top:0.5rem; display:block;">Fri – Sat</a></li>
+        <li><a style="color: var(--cream-muted);">11am – 10:30pm</a></li>
+        <li><a style="margin-top:0.5rem; display:block;">Sunday</a></li>
+        <li><a style="color: var(--cream-muted);">12pm – 9pm</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon" aria-hidden="true">📞</div>
+        <div class="footer-contact-text">
+          <strong>Phone</strong>
+          <a href="tel:2506142388">250-614-2388</a>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon" aria-hidden="true">✉</div>
+        <div class="footer-contact-text">
+          <strong>Email</strong>
+          <a href="mailto:sogoodrestaurant@gmail.com">sogoodrestaurant@gmail.com</a>
+        </div>
+      </div>
+      <div class="footer-contact-item">
+        <div class="footer-contact-icon" aria-hidden="true">📍</div>
+        <div class="footer-contact-text">
+          <strong>Address</strong>
+          3333 8th Avenue<br>Prince George, BC V2M 1N1
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 So Good Restaurant. All rights reserved.</p>
+    <div class="footer-bottom-links">
+      <a href="#">Privacy policy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Gift cards</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('open');
+});
+
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => navLinks.classList.remove('open'));
+});
+
+const tabs = document.querySelectorAll('.menu-tab');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+    tab.classList.add('active'); tab.setAttribute('aria-selected', 'true');
+    document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+    document.getElementById('panel-' + tab.dataset.target).classList.add('active');
+  });
+});
+
+const today = new Date().toISOString().split('T')[0];
+const dateInput = document.getElementById('res-date');
+if (dateInput) dateInput.min = today;
+
+function handleReservation(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.form-submit');
+  const orig = btn.textContent;
+  btn.textContent = 'Request sent — we\'ll call you soon!';
+  btn.style.background = '#1a6b3c';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = orig;
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 4000);
+}
+
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  nav.style.background = window.scrollY > 40
+    ? 'rgba(8,8,8,0.97)' : 'rgba(13,13,13,0.92)';
+});
+</script>
+</body>
+</html>
